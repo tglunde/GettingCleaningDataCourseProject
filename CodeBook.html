@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>CodeBook</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>CodeBook</h1>
+
+<h1>Naming Standards</h1>
+
+<p>Naming standards for columns are: capital letters only, separator &#39;_&#39; and no other non-letter characters</p>
+
+<h1>Function call for analysis</h1>
+
+<p>Please source the contained file run_analysis.R
+Then call run(&ldquo;basedir&rdquo;) where basedir is the directory the data files have been extracted into. In that same directory the resulting CSV will be written.</p>
+
+<h1>Original Data Set</h1>
+
+<ul>
+<li>main directory contains activity and feature lables</li>
+<li>train and test directory each contains a subject, x (feature value) and Y (activity id) file</li>
+</ul>
+
+<h1>For each record it is provided:</h1>
+
+<ul>
+<li>Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.</li>
+<li>Triaxial Angular velocity from the gyroscope. </li>
+<li>A 561-feature vector with time and frequency domain variables. </li>
+<li>Its activity label. </li>
+<li>An identifier of the subject who carried out the experiment.</li>
+</ul>
+
+<h1>Notes: </h1>
+
+<ul>
+<li>Features are normalized and bounded within [-1,1].</li>
+<li>Each feature vector is a row on the text file.</li>
+</ul>
+
+<h1>Transformations: </h1>
+
+<ul>
+<li>1. read activity and feature lables</li>
+<li>2. read and combine train and test data into X,Y and S (values, activities and subjects)</li>
+<li>3. selecting only the feature columns from X that contain mean or std in its lable</li>
+<li>4. clean up names according to our naming standards</li>
+<li>5. merging in activity lables according to the ids</li>
+<li>6. combining the three data sets using cbind</li>
+<li>7. Using reshape to re-order (melt) the data and then calculate the mean for all features per subject and activity</li>
+<li>8. Writing the result to file in <basedir> and returning the tidy result</li>
+</ul>
+
+<h1>Columns of Result: </h1>
+
+<ul>
+<li>1. SUBJECT id of subject that did the test as factor variable</li>
+<li>2. Activity provided as factor variable</li>
+<li>3.-68. means of features provided as mean and std feature as described in the original data set</li>
+</ul>
+
+<h1>Resulting result.csv: </h1>
+
+<p>The resulting data set is being written into the provided base directory as result.csv - consequently it has header names and uses sep=&ldquo;,&rdquo; which need to be taken into account as parameters when using read.table function.</p>
+
+</body>
+
+</html>
+
