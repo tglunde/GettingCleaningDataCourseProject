@@ -14,9 +14,9 @@ Original Data Set
 ========================================================
 * main directory contains activity and feature lables
 * train and test directory each contains a subject, x (feature value) and Y (activity id) file
- 
+* please see the detailed descriptions in from the original data set for the feature and activity descriptions 
 
-For each record it is provided:
+For each record it is provided
 ======================================
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
 - Triaxial Angular velocity from the gyroscope. 
@@ -24,13 +24,13 @@ For each record it is provided:
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
 
-Notes: 
+Notes
 ======
 - Features are normalized and bounded within [-1,1].
 - Each feature vector is a row on the text file.
 
-Transformations: 
-================
+Transformations in run_analysis.R 
+=================================
 * 1. read activity and feature lables
 * 2. read and combine train and test data into X,Y and S (values, activities and subjects)
 * 3. selecting only the feature columns from X that contain mean or std in its lable

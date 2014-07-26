@@ -151,16 +151,17 @@ hr {
 <h1>Function call for analysis</h1>
 
 <p>Please source the contained file run_analysis.R
-Then call run(&ldquo;basedir&rdquo;) where basedir is the directory the data files have been extracted into. In that same directory the resulting CSV will be written.</p>
+Then call run(&ldquo;basedir&rdquo;) where basedir is the directory the original data set files have been extracted into. In that same directory the resulting CSV will be written.</p>
 
 <h1>Original Data Set</h1>
 
 <ul>
 <li>main directory contains activity and feature lables</li>
 <li>train and test directory each contains a subject, x (feature value) and Y (activity id) file</li>
+<li>please see the detailed descriptions in from the original data set for the feature and activity descriptions </li>
 </ul>
 
-<h1>For each record it is provided:</h1>
+<h1>For each record it is provided</h1>
 
 <ul>
 <li>Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.</li>
@@ -170,14 +171,14 @@ Then call run(&ldquo;basedir&rdquo;) where basedir is the directory the data fil
 <li>An identifier of the subject who carried out the experiment.</li>
 </ul>
 
-<h1>Notes: </h1>
+<h1>Notes</h1>
 
 <ul>
 <li>Features are normalized and bounded within [-1,1].</li>
 <li>Each feature vector is a row on the text file.</li>
 </ul>
 
-<h1>Transformations: </h1>
+<h1>Transformations in run_analysis.R </h1>
 
 <ul>
 <li>1. read activity and feature lables</li>
